@@ -15,5 +15,15 @@ namespace Controle_de_Filmes
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cadastro_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
