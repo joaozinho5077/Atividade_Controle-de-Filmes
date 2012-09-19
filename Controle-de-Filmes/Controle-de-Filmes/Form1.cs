@@ -11,6 +11,9 @@ namespace Controle_de_Filmes
 {
     public partial class Form1 : Form
     {
+        
+        //List<Filme> Filmes = new List<Filme>();
+        Dictionary<string, List<Filme>> dic = new Dictionary<string, List<Filme>>();
         public Form1()
         {
             InitializeComponent();
@@ -18,12 +21,32 @@ namespace Controle_de_Filmes
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Cadastro_Click(object sender, EventArgs e)
         {
 
+        }
+        public void Inserir()
+        {
+             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+                ListViewItem FilmesAssistido = new ListViewItem();
+                FilmesAssistido.Text = (textBoxNome.Text);
+                FilmesAssistido.SubItems.Add(dateTimePicker1.Text);
+                FilmesAssistido.SubItems.Add(textBoxLocal.Text);
+                FilmesAssistido.Group = listView1.Groups[comboBoxGenero.SelectedIndex];
+                listView1.Items.Add(FilmesAssistido);
+
+                //Filme X = new Filme (textBoxNome.Text, comboBoxGenero.Text, dateTimePicker1.Text, textBoxLocal.Text);
+                //Filmes.Add(X);
+                //dic.Add("Ação", );
+            
         }
     }
 }
