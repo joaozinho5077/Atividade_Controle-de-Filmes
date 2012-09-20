@@ -28,11 +28,7 @@ namespace Controle_de_Filmes
         {
 
         }
-        public void Inserir()
-        {
-             
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             
@@ -43,8 +39,8 @@ namespace Controle_de_Filmes
                 FilmesAssistido.Group = listView1.Groups[comboBoxGenero.SelectedIndex];
                 listView1.Items.Add(FilmesAssistido);
 
-                //Filme X = new Filme (textBoxNome.Text, comboBoxGenero.Text, dateTimePicker1.Text, textBoxLocal.Text);
-                //Filmes.Add(X);
+                Filme X = new Filme (textBoxNome.Text, comboBoxGenero.Text, dateTimePicker1.Text, textBoxLocal.Text);
+                dic[comboBoxGenero.Text].Add();
                 //dic.Add("Ação", );
             
         }
