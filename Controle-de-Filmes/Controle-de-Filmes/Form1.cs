@@ -11,8 +11,8 @@ namespace Controle_de_Filmes
 {
     public partial class Form1 : Form
     {
-        
-        //List<Filme> Filmes = new List<Filme>();
+
+        //Dicionario com Lista de Filmes, onde a chave do dicionário é o gênero do filme
         Dictionary<string, List<Filme>> dic = new Dictionary<string, List<Filme>>();
         public Form1()
         {
@@ -31,18 +31,34 @@ namespace Controle_de_Filmes
         
         private void button1_Click(object sender, EventArgs e)
         {
-            
-                ListViewItem FilmesAssistido = new ListViewItem();
-                FilmesAssistido.Text = (textBoxNome.Text);
-                FilmesAssistido.SubItems.Add(dateTimePicker1.Text);
-                FilmesAssistido.SubItems.Add(textBoxLocal.Text);
-                FilmesAssistido.Group = listView1.Groups[comboBoxGenero.SelectedIndex];
-                listView1.Items.Add(FilmesAssistido);
+            //Adiciona Itens no ListView
+            ListViewItem FilmeAssistido = new ListViewItem();
+            FilmeAssistido.Text = (textBoxNome.Text);
+            FilmeAssistido.SubItems.Add(dateTimePicker1.Text);
+            FilmeAssistido.SubItems.Add(textBoxLocal.Text);
+            //Adiciona do grupo que tem o mesmo índice do combobox
+            FilmeAssistido.Group = listView1.Groups[comboBoxGenero.SelectedIndex];
+            listView1.Items.Add(FilmeAssistido);//Adiciona
 
-                Filme X = new Filme (textBoxNome.Text, comboBoxGenero.Text, dateTimePicker1.Text, textBoxLocal.Text);
-                dic[comboBoxGenero.Text].Add();
-                //dic.Add("Ação", );
-            
+            //Passagem por referência pra classe 'Filme'
+            Filme FilmeX = new Filme(textBoxNome.Text, comboBoxGenero.Text, dateTimePicker1.Text, textBoxLocal.Text);
+
+            if (dic.ContainsKey(comboBoxGenero.Text))
+            {
+                //Se a chave com a lista ja existir, armazena o filme dentro dela
+                List<Filme> ListaX = dic[comboBoxGenero.Text];
+                //Adiciona FilmeX na ListaX
+                ListaX.Add(FilmeX);
+            }
+            else
+            {
+                //Se a lista não existir cria uma nova lista
+                List<Filme> NovaLista = new List<Filme>();
+                //Adiciona FilmeX na ListaFilmes
+                NovaLista.Add(FilmeX);
+                //Adiciona a lista de Filmes no dicionário
+                dic.Add(comboBoxGenero.Text, NovaLista);
+            }                       
         }
     }
 }
