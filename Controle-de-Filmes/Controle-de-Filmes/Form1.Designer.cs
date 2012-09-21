@@ -40,7 +40,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Cadastro = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.NomeFilme = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.local = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxLocal = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBoxGenero = new System.Windows.Forms.ComboBox();
@@ -49,11 +53,8 @@
             this.labelData = new System.Windows.Forms.Label();
             this.labelGenero = new System.Windows.Forms.Label();
             this.label_NomeFilme = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.NomeFilme = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.local = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonRemover = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Cadastro.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +81,7 @@
             // 
             // Cadastro
             // 
+            this.Cadastro.Controls.Add(this.buttonRemover);
             this.Cadastro.Controls.Add(this.button1);
             this.Cadastro.Controls.Add(this.listView1);
             this.Cadastro.Controls.Add(this.textBoxLocal);
@@ -99,15 +101,72 @@
             this.Cadastro.UseVisualStyleBackColor = true;
             this.Cadastro.Click += new System.EventHandler(this.Cadastro_Click);
             // 
-            // tabPage2
+            // button1
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(830, 501);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Pesquisa";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(726, 27);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(51, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "ADD";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.NomeFilme,
+            this.data,
+            this.local});
+            this.listView1.FullRowSelect = true;
+            listViewGroup1.Header = "Ação";
+            listViewGroup1.Name = "Acao";
+            listViewGroup2.Header = "Aventura";
+            listViewGroup2.Name = "Aventura";
+            listViewGroup3.Header = "Comédia";
+            listViewGroup3.Name = "Comedia";
+            listViewGroup4.Header = "Terror";
+            listViewGroup4.Name = "Terror";
+            listViewGroup5.Header = "Suspense";
+            listViewGroup5.Name = "Suspense";
+            listViewGroup6.Header = "Documentário";
+            listViewGroup6.Name = "Documentario";
+            listViewGroup7.Header = "Infantil";
+            listViewGroup7.Name = "Infantil";
+            listViewGroup8.Header = "Romance";
+            listViewGroup8.Name = "Romance";
+            listViewGroup9.Header = "Ficção-científica";
+            listViewGroup9.Name = "ficcao-cientifica";
+            this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6,
+            listViewGroup7,
+            listViewGroup8,
+            listViewGroup9});
+            this.listView1.Location = new System.Drawing.Point(58, 93);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(720, 402);
+            this.listView1.TabIndex = 17;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // NomeFilme
+            // 
+            this.NomeFilme.Text = "Nome do Filme";
+            this.NomeFilme.Width = 299;
+            // 
+            // data
+            // 
+            this.data.Text = "Data";
+            this.data.Width = 166;
+            // 
+            // local
+            // 
+            this.local.Text = "Local";
+            this.local.Width = 235;
             // 
             // textBoxLocal
             // 
@@ -186,71 +245,25 @@
             this.label_NomeFilme.TabIndex = 9;
             this.label_NomeFilme.Text = "Nome do Filme";
             // 
-            // listView1
+            // tabPage2
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.NomeFilme,
-            this.data,
-            this.local});
-            listViewGroup1.Header = "Ação";
-            listViewGroup1.Name = "Acao";
-            listViewGroup2.Header = "Aventura";
-            listViewGroup2.Name = "Aventura";
-            listViewGroup3.Header = "Comédia";
-            listViewGroup3.Name = "Comedia";
-            listViewGroup4.Header = "Terror";
-            listViewGroup4.Name = "Terror";
-            listViewGroup5.Header = "Suspense";
-            listViewGroup5.Name = "Suspense";
-            listViewGroup6.Header = "Documentário";
-            listViewGroup6.Name = "Documentario";
-            listViewGroup7.Header = "Infantil";
-            listViewGroup7.Name = "Infantil";
-            listViewGroup8.Header = "Romance";
-            listViewGroup8.Name = "Romance";
-            listViewGroup9.Header = "Ficção-científica";
-            listViewGroup9.Name = "ficcao-cientifica";
-            this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5,
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9});
-            this.listView1.Location = new System.Drawing.Point(58, 68);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(720, 427);
-            this.listView1.TabIndex = 17;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(830, 501);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Pesquisa";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // NomeFilme
+            // buttonRemover
             // 
-            this.NomeFilme.Text = "Nome do Filme";
-            this.NomeFilme.Width = 299;
-            // 
-            // data
-            // 
-            this.data.Text = "Data";
-            this.data.Width = 166;
-            // 
-            // local
-            // 
-            this.local.Text = "Local";
-            this.local.Width = 235;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(726, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(51, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "ADD";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonRemover.Location = new System.Drawing.Point(58, 56);
+            this.buttonRemover.Name = "buttonRemover";
+            this.buttonRemover.Size = new System.Drawing.Size(75, 23);
+            this.buttonRemover.TabIndex = 19;
+            this.buttonRemover.Text = "Remover";
+            this.buttonRemover.UseVisualStyleBackColor = true;
+            this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
             // 
             // Form1
             // 
@@ -289,6 +302,7 @@
         private System.Windows.Forms.ColumnHeader data;
         private System.Windows.Forms.ColumnHeader local;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonRemover;
     }
 }
 

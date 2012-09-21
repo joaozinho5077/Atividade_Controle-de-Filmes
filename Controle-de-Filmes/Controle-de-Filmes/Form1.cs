@@ -40,8 +40,10 @@ namespace Controle_de_Filmes
             FilmeAssistido.Group = listView1.Groups[comboBoxGenero.SelectedIndex];
             listView1.Items.Add(FilmeAssistido);//Adiciona
 
+            //converte a Data
+            dateTimePicker1.Value.ToShortDateString();
             //Passagem por referência pra classe 'Filme'
-            Filme FilmeX = new Filme(textBoxNome.Text, comboBoxGenero.Text, dateTimePicker1.Text, textBoxLocal.Text);
+            Filme FilmeX = new Filme(textBoxNome.Text, dateTimePicker1.ToString(), textBoxLocal.Text);
 
             if (dic.ContainsKey(comboBoxGenero.Text))
             {
@@ -59,6 +61,18 @@ namespace Controle_de_Filmes
                 //Adiciona a lista de Filmes no dicionário
                 dic.Add(comboBoxGenero.Text, NovaLista);
             }                       
+        }
+
+        private void buttonRemover_Click(object sender, EventArgs e)
+        {
+            //listView1.SelectedItems.IndexOfKey.
+            //listView1.Items.RemoveAt(listView1.SelectedIndices.Remove());
+            foreach (ListViewItem listViewItem in listView1.SelectedItems)
+            {
+
+                listView1.Items.Remove(listViewItem);
+
+            }
         }
     }
 }
