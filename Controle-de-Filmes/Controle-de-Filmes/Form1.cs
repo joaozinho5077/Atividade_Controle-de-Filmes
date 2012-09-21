@@ -65,14 +65,22 @@ namespace Controle_de_Filmes
 
         private void buttonRemover_Click(object sender, EventArgs e)
         {
-            //listView1.SelectedItems.IndexOfKey.
-            //listView1.Items.RemoveAt(listView1.SelectedIndices.Remove());
+            // Remove item selecionado
             foreach (ListViewItem listViewItem in listView1.SelectedItems)
             {
-
                 listView1.Items.Remove(listViewItem);
-
             }
+
+        }
+        private void listView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                foreach (ListViewItem listViewItem in listView1.SelectedItems)
+                {
+                    listView1.Items.Remove(listViewItem);
+                }
+            }        
         }
     }
 }

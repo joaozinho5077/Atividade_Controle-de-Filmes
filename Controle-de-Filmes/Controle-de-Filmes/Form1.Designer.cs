@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Cadastro = new System.Windows.Forms.TabPage();
+            this.buttonRemover = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.NomeFilme = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -54,7 +55,6 @@
             this.labelGenero = new System.Windows.Forms.Label();
             this.label_NomeFilme = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.buttonRemover = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Cadastro.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +101,16 @@
             this.Cadastro.UseVisualStyleBackColor = true;
             this.Cadastro.Click += new System.EventHandler(this.Cadastro_Click);
             // 
+            // buttonRemover
+            // 
+            this.buttonRemover.Location = new System.Drawing.Point(702, 462);
+            this.buttonRemover.Name = "buttonRemover";
+            this.buttonRemover.Size = new System.Drawing.Size(75, 23);
+            this.buttonRemover.TabIndex = 19;
+            this.buttonRemover.Text = "Remover";
+            this.buttonRemover.UseVisualStyleBackColor = true;
+            this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(726, 27);
@@ -146,12 +156,13 @@
             listViewGroup7,
             listViewGroup8,
             listViewGroup9});
-            this.listView1.Location = new System.Drawing.Point(58, 93);
+            this.listView1.Location = new System.Drawing.Point(58, 75);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(720, 402);
+            this.listView1.Size = new System.Drawing.Size(720, 381);
             this.listView1.TabIndex = 17;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listView1_KeyDown);
             // 
             // NomeFilme
             // 
@@ -254,16 +265,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pesquisa";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // buttonRemover
-            // 
-            this.buttonRemover.Location = new System.Drawing.Point(58, 56);
-            this.buttonRemover.Name = "buttonRemover";
-            this.buttonRemover.Size = new System.Drawing.Size(75, 23);
-            this.buttonRemover.TabIndex = 19;
-            this.buttonRemover.Text = "Remover";
-            this.buttonRemover.UseVisualStyleBackColor = true;
-            this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
             // 
             // Form1
             // 
