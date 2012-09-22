@@ -28,6 +28,13 @@ namespace Controle_de_Filmes
         {
 
         }
+        private void Deletar()
+        {
+            foreach (ListViewItem listViewItem in listView1.SelectedItems)
+            {
+                listView1.Items.Remove(listViewItem);
+            }
+        }
         
         private void button1_Click(object sender, EventArgs e)
         {
@@ -68,18 +75,16 @@ namespace Controle_de_Filmes
             // Remove item selecionado
             foreach (ListViewItem listViewItem in listView1.SelectedItems)
             {
-                listView1.Items.Remove(listViewItem);
+                Deletar();
             }
 
         }
         private void listView1_KeyDown(object sender, KeyEventArgs e)
         {
+            //Remove itens selecionados pela tecla Delete 
             if (e.KeyCode == Keys.Delete)
             {
-                foreach (ListViewItem listViewItem in listView1.SelectedItems)
-                {
-                    listView1.Items.Remove(listViewItem);
-                }
+                Deletar();
             }        
         }
     }
