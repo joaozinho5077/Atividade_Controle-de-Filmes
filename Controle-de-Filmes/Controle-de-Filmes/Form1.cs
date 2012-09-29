@@ -27,15 +27,7 @@ namespace Controle_de_Filmes
         private void Cadastro_Click(object sender, EventArgs e)
         {
 
-        }
-        private void Deletar()
-        {
-            foreach (ListViewItem listViewItem in listView1.SelectedItems)
-            {
-                listView1.Items.Remove(listViewItem);
-            }
-        }
-        
+        }        
         private void button1_Click(object sender, EventArgs e)
         {
             //Adiciona Itens no ListView
@@ -43,7 +35,7 @@ namespace Controle_de_Filmes
             FilmeAssistido.Text = (textBoxNome.Text);
             FilmeAssistido.SubItems.Add(dateTimePicker1.Text);
             FilmeAssistido.SubItems.Add(textBoxLocal.Text);
-            //Adiciona do grupo que tem o mesmo índice do combobox
+            //Adiciona no grupo que tem o mesmo índice do combobox
             FilmeAssistido.Group = listView1.Groups[comboBoxGenero.SelectedIndex];
             listView1.Items.Add(FilmeAssistido);//Adiciona
 
@@ -54,14 +46,14 @@ namespace Controle_de_Filmes
 
             if (dic.ContainsKey(comboBoxGenero.Text))
             {
-                //Se a chave com a lista ja existir, armazena o filme dentro dela
+                //Se a chave com a lista ja existir, armazena o filme dentro da lista existente
                 List<Filme> ListaX = dic[comboBoxGenero.Text];
                 //Adiciona FilmeX na ListaX
                 ListaX.Add(FilmeX);
             }
             else
             {
-                //Se a lista não existir cria uma nova lista
+                //Se a lista não existir, cria uma nova lista
                 List<Filme> NovaLista = new List<Filme>();
                 //Adiciona FilmeX na ListaFilmes
                 NovaLista.Add(FilmeX);
@@ -69,19 +61,37 @@ namespace Controle_de_Filmes
                 dic.Add(comboBoxGenero.Text, NovaLista);
             }                       
         }
-
-        private void buttonRemover_Click(object sender, EventArgs e)
+        private void Deletar()
         {
-            // Remove item selecionado
             foreach (ListViewItem listViewItem in listView1.SelectedItems)
             {
-                Deletar();
+                //Remve item do Lis ListView1
+                listView1.Items.Remove(listViewItem);
+
+                // Remove o filme do dicionario que está selecionado no ListView
+                string Genero = listViewItem.Group.Header;
+                List<Filme> ListaFilme = dic[Genero];
+
+                for (int I = 0; I < ListaFilme.Count; I++)
+                    if (ListaFilme[I].Nome == listViewItem.Text)
+                    {
+                        ListaFilme.RemoveAt(I);
+                        I--;
+                    }
+            }
+        }
+        private void buttonRemover_Click(object sender, EventArgs e)
+        {
+            // Remover item selecionadodo ListView 
+            foreach (ListViewItem listViewItem in listView1.SelectedItems)
+            {   
+                    Deletar();
             }
 
         }
         private void listView1_KeyDown(object sender, KeyEventArgs e)
         {
-            //Remove itens selecionados pela tecla Delete 
+            //Remover item selecionados pela tecla Delete 
             if (e.KeyCode == Keys.Delete)
             {
                 Deletar();

@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Documentário", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Ficção-científica", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("Documentário", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("Ficção-científica", System.Windows.Forms.HorizontalAlignment.Left);
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Cadastro = new System.Windows.Forms.TabPage();
             this.buttonRemover = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAdicionar = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.NomeFilme = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -55,6 +55,8 @@
             this.labelGenero = new System.Windows.Forms.Label();
             this.label_NomeFilme = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonGravar = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Cadastro.SuspendLayout();
             this.SuspendLayout();
@@ -81,8 +83,10 @@
             // 
             // Cadastro
             // 
+            this.Cadastro.Controls.Add(this.buttonGravar);
+            this.Cadastro.Controls.Add(this.buttonEditar);
             this.Cadastro.Controls.Add(this.buttonRemover);
-            this.Cadastro.Controls.Add(this.button1);
+            this.Cadastro.Controls.Add(this.buttonAdicionar);
             this.Cadastro.Controls.Add(this.listView1);
             this.Cadastro.Controls.Add(this.textBoxLocal);
             this.Cadastro.Controls.Add(this.dateTimePicker1);
@@ -103,7 +107,7 @@
             // 
             // buttonRemover
             // 
-            this.buttonRemover.Location = new System.Drawing.Point(702, 462);
+            this.buttonRemover.Location = new System.Drawing.Point(300, 59);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(75, 23);
             this.buttonRemover.TabIndex = 19;
@@ -111,15 +115,15 @@
             this.buttonRemover.UseVisualStyleBackColor = true;
             this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
             // 
-            // button1
+            // buttonAdicionar
             // 
-            this.button1.Location = new System.Drawing.Point(726, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(51, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "ADD";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAdicionar.Location = new System.Drawing.Point(58, 59);
+            this.buttonAdicionar.Name = "buttonAdicionar";
+            this.buttonAdicionar.Size = new System.Drawing.Size(74, 23);
+            this.buttonAdicionar.TabIndex = 18;
+            this.buttonAdicionar.Text = "Adicionar";
+            this.buttonAdicionar.UseVisualStyleBackColor = true;
+            this.buttonAdicionar.Click += new System.EventHandler(this.button1_Click);
             // 
             // listView1
             // 
@@ -128,37 +132,37 @@
             this.data,
             this.local});
             this.listView1.FullRowSelect = true;
-            listViewGroup1.Header = "Ação";
-            listViewGroup1.Name = "Acao";
-            listViewGroup2.Header = "Aventura";
-            listViewGroup2.Name = "Aventura";
-            listViewGroup3.Header = "Comédia";
-            listViewGroup3.Name = "Comedia";
-            listViewGroup4.Header = "Terror";
-            listViewGroup4.Name = "Terror";
-            listViewGroup5.Header = "Suspense";
-            listViewGroup5.Name = "Suspense";
-            listViewGroup6.Header = "Documentário";
-            listViewGroup6.Name = "Documentario";
-            listViewGroup7.Header = "Infantil";
-            listViewGroup7.Name = "Infantil";
-            listViewGroup8.Header = "Romance";
-            listViewGroup8.Name = "Romance";
-            listViewGroup9.Header = "Ficção-científica";
-            listViewGroup9.Name = "ficcao-cientifica";
+            listViewGroup10.Header = "Ação";
+            listViewGroup10.Name = "Acao";
+            listViewGroup11.Header = "Aventura";
+            listViewGroup11.Name = "Aventura";
+            listViewGroup12.Header = "Comédia";
+            listViewGroup12.Name = "Comedia";
+            listViewGroup13.Header = "Terror";
+            listViewGroup13.Name = "Terror";
+            listViewGroup14.Header = "Suspense";
+            listViewGroup14.Name = "Suspense";
+            listViewGroup15.Header = "Documentário";
+            listViewGroup15.Name = "Documentario";
+            listViewGroup16.Header = "Infantil";
+            listViewGroup16.Name = "Infantil";
+            listViewGroup17.Header = "Romance";
+            listViewGroup17.Name = "Romance";
+            listViewGroup18.Header = "Ficção-científica";
+            listViewGroup18.Name = "ficcao-cientifica";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5,
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9});
-            this.listView1.Location = new System.Drawing.Point(58, 75);
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12,
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15,
+            listViewGroup16,
+            listViewGroup17,
+            listViewGroup18});
+            this.listView1.Location = new System.Drawing.Point(58, 99);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(720, 381);
+            this.listView1.Size = new System.Drawing.Size(720, 379);
             this.listView1.TabIndex = 17;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -183,7 +187,7 @@
             // 
             this.textBoxLocal.Location = new System.Drawing.Point(526, 30);
             this.textBoxLocal.Name = "textBoxLocal";
-            this.textBoxLocal.Size = new System.Drawing.Size(194, 20);
+            this.textBoxLocal.Size = new System.Drawing.Size(251, 20);
             this.textBoxLocal.TabIndex = 16;
             // 
             // dateTimePicker1
@@ -199,15 +203,15 @@
             this.comboBoxGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGenero.FormattingEnabled = true;
             this.comboBoxGenero.Items.AddRange(new object[] {
-            "ação",
-            "aventura",
-            "comédia",
-            "terror",
-            "suspense",
-            "documentário",
-            "infantil",
-            "romance",
-            "ficção científica"});
+            "Ação",
+            "Aventura",
+            "Comédia",
+            "Terror",
+            "Suspense",
+            "Documentário",
+            "Infantil",
+            "Romance",
+            "Ficção-científica"});
             this.comboBoxGenero.Location = new System.Drawing.Point(276, 30);
             this.comboBoxGenero.Name = "comboBoxGenero";
             this.comboBoxGenero.Size = new System.Drawing.Size(121, 21);
@@ -266,6 +270,24 @@
             this.tabPage2.Text = "Pesquisa";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // buttonEditar
+            // 
+            this.buttonEditar.Location = new System.Drawing.Point(138, 59);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditar.TabIndex = 20;
+            this.buttonEditar.Text = "Editar";
+            this.buttonEditar.UseVisualStyleBackColor = true;
+            // 
+            // buttonGravar
+            // 
+            this.buttonGravar.Location = new System.Drawing.Point(219, 59);
+            this.buttonGravar.Name = "buttonGravar";
+            this.buttonGravar.Size = new System.Drawing.Size(75, 23);
+            this.buttonGravar.TabIndex = 21;
+            this.buttonGravar.Text = "Gravar";
+            this.buttonGravar.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,8 +324,10 @@
         private System.Windows.Forms.ColumnHeader NomeFilme;
         private System.Windows.Forms.ColumnHeader data;
         private System.Windows.Forms.ColumnHeader local;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAdicionar;
         private System.Windows.Forms.Button buttonRemover;
+        private System.Windows.Forms.Button buttonEditar;
+        private System.Windows.Forms.Button buttonGravar;
     }
 }
 
