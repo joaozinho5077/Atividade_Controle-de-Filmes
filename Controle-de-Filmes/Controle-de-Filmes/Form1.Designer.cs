@@ -40,6 +40,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Cadastro = new System.Windows.Forms.TabPage();
+            this.buttonGravar = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonRemover = new System.Windows.Forms.Button();
             this.buttonAdicionar = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -54,9 +56,8 @@
             this.labelData = new System.Windows.Forms.Label();
             this.labelGenero = new System.Windows.Forms.Label();
             this.label_NomeFilme = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonGravar = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Cadastro.SuspendLayout();
             this.SuspendLayout();
@@ -64,10 +65,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(209, 22);
+            this.label1.Font = new System.Drawing.Font("Matura MT Script Capitals", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label1.Location = new System.Drawing.Point(192, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(431, 33);
+            this.label1.Size = new System.Drawing.Size(558, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Controle de Filmes Assistidos";
             // 
@@ -75,6 +77,7 @@
             // 
             this.tabControl1.Controls.Add(this.Cadastro);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 58);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -83,6 +86,7 @@
             // 
             // Cadastro
             // 
+            this.Cadastro.BackColor = System.Drawing.SystemColors.Menu;
             this.Cadastro.Controls.Add(this.buttonGravar);
             this.Cadastro.Controls.Add(this.buttonEditar);
             this.Cadastro.Controls.Add(this.buttonRemover);
@@ -96,20 +100,41 @@
             this.Cadastro.Controls.Add(this.labelData);
             this.Cadastro.Controls.Add(this.labelGenero);
             this.Cadastro.Controls.Add(this.label_NomeFilme);
-            this.Cadastro.Location = new System.Drawing.Point(4, 22);
+            this.Cadastro.Controls.Add(this.groupBox1);
+            this.Cadastro.Location = new System.Drawing.Point(4, 27);
             this.Cadastro.Name = "Cadastro";
             this.Cadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.Cadastro.Size = new System.Drawing.Size(830, 501);
+            this.Cadastro.Size = new System.Drawing.Size(830, 496);
             this.Cadastro.TabIndex = 0;
             this.Cadastro.Text = "Cadastro";
-            this.Cadastro.UseVisualStyleBackColor = true;
             this.Cadastro.Click += new System.EventHandler(this.Cadastro_Click);
+            // 
+            // buttonGravar
+            // 
+            this.buttonGravar.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGravar.Location = new System.Drawing.Point(165, 289);
+            this.buttonGravar.Name = "buttonGravar";
+            this.buttonGravar.Size = new System.Drawing.Size(119, 55);
+            this.buttonGravar.TabIndex = 21;
+            this.buttonGravar.Text = "Gravar";
+            this.buttonGravar.UseVisualStyleBackColor = true;
+            // 
+            // buttonEditar
+            // 
+            this.buttonEditar.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditar.Location = new System.Drawing.Point(34, 289);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(119, 55);
+            this.buttonEditar.TabIndex = 20;
+            this.buttonEditar.Text = "Editar";
+            this.buttonEditar.UseVisualStyleBackColor = true;
             // 
             // buttonRemover
             // 
-            this.buttonRemover.Location = new System.Drawing.Point(300, 59);
+            this.buttonRemover.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRemover.Location = new System.Drawing.Point(165, 228);
             this.buttonRemover.Name = "buttonRemover";
-            this.buttonRemover.Size = new System.Drawing.Size(75, 23);
+            this.buttonRemover.Size = new System.Drawing.Size(119, 55);
             this.buttonRemover.TabIndex = 19;
             this.buttonRemover.Text = "Remover";
             this.buttonRemover.UseVisualStyleBackColor = true;
@@ -117,9 +142,10 @@
             // 
             // buttonAdicionar
             // 
-            this.buttonAdicionar.Location = new System.Drawing.Point(58, 59);
+            this.buttonAdicionar.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdicionar.Location = new System.Drawing.Point(33, 228);
             this.buttonAdicionar.Name = "buttonAdicionar";
-            this.buttonAdicionar.Size = new System.Drawing.Size(74, 23);
+            this.buttonAdicionar.Size = new System.Drawing.Size(119, 55);
             this.buttonAdicionar.TabIndex = 18;
             this.buttonAdicionar.Text = "Adicionar";
             this.buttonAdicionar.UseVisualStyleBackColor = true;
@@ -160,9 +186,9 @@
             listViewGroup16,
             listViewGroup17,
             listViewGroup18});
-            this.listView1.Location = new System.Drawing.Point(58, 99);
+            this.listView1.Location = new System.Drawing.Point(306, 17);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(720, 379);
+            this.listView1.Size = new System.Drawing.Size(504, 461);
             this.listView1.TabIndex = 17;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -171,31 +197,31 @@
             // NomeFilme
             // 
             this.NomeFilme.Text = "Nome do Filme";
-            this.NomeFilme.Width = 299;
+            this.NomeFilme.Width = 209;
             // 
             // data
             // 
             this.data.Text = "Data";
-            this.data.Width = 166;
+            this.data.Width = 95;
             // 
             // local
             // 
             this.local.Text = "Local";
-            this.local.Width = 235;
+            this.local.Width = 191;
             // 
             // textBoxLocal
             // 
-            this.textBoxLocal.Location = new System.Drawing.Point(526, 30);
+            this.textBoxLocal.Location = new System.Drawing.Point(33, 170);
             this.textBoxLocal.Name = "textBoxLocal";
-            this.textBoxLocal.Size = new System.Drawing.Size(251, 20);
+            this.textBoxLocal.Size = new System.Drawing.Size(251, 24);
             this.textBoxLocal.TabIndex = 16;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(412, 31);
+            this.dateTimePicker1.Location = new System.Drawing.Point(174, 111);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(110, 24);
             this.dateTimePicker1.TabIndex = 15;
             // 
             // comboBoxGenero
@@ -212,81 +238,81 @@
             "Infantil",
             "Romance",
             "Ficção-científica"});
-            this.comboBoxGenero.Location = new System.Drawing.Point(276, 30);
+            this.comboBoxGenero.Location = new System.Drawing.Point(33, 110);
             this.comboBoxGenero.Name = "comboBoxGenero";
-            this.comboBoxGenero.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGenero.Size = new System.Drawing.Size(125, 26);
             this.comboBoxGenero.TabIndex = 14;
             // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(58, 30);
+            this.textBoxNome.Location = new System.Drawing.Point(33, 55);
             this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(203, 20);
+            this.textBoxNome.Size = new System.Drawing.Size(251, 24);
             this.textBoxNome.TabIndex = 13;
             // 
             // labelLocal
             // 
             this.labelLocal.AutoSize = true;
-            this.labelLocal.Location = new System.Drawing.Point(523, 13);
+            this.labelLocal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.labelLocal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLocal.Location = new System.Drawing.Point(30, 148);
             this.labelLocal.Name = "labelLocal";
-            this.labelLocal.Size = new System.Drawing.Size(33, 13);
+            this.labelLocal.Size = new System.Drawing.Size(49, 18);
             this.labelLocal.TabIndex = 12;
             this.labelLocal.Text = "Local";
             // 
             // labelData
             // 
             this.labelData.AutoSize = true;
-            this.labelData.Location = new System.Drawing.Point(409, 13);
+            this.labelData.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.labelData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelData.Location = new System.Drawing.Point(171, 88);
             this.labelData.Name = "labelData";
-            this.labelData.Size = new System.Drawing.Size(33, 13);
+            this.labelData.Size = new System.Drawing.Size(48, 18);
             this.labelData.TabIndex = 11;
             this.labelData.Text = "Data ";
             // 
             // labelGenero
             // 
             this.labelGenero.AutoSize = true;
-            this.labelGenero.Location = new System.Drawing.Point(273, 13);
+            this.labelGenero.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.labelGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGenero.Location = new System.Drawing.Point(30, 88);
             this.labelGenero.Name = "labelGenero";
-            this.labelGenero.Size = new System.Drawing.Size(42, 13);
+            this.labelGenero.Size = new System.Drawing.Size(64, 18);
             this.labelGenero.TabIndex = 10;
             this.labelGenero.Text = "Gênero";
             // 
             // label_NomeFilme
             // 
             this.label_NomeFilme.AutoSize = true;
-            this.label_NomeFilme.Location = new System.Drawing.Point(55, 13);
+            this.label_NomeFilme.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label_NomeFilme.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_NomeFilme.Location = new System.Drawing.Point(30, 33);
             this.label_NomeFilme.Name = "label_NomeFilme";
-            this.label_NomeFilme.Size = new System.Drawing.Size(77, 13);
+            this.label_NomeFilme.Size = new System.Drawing.Size(123, 18);
             this.label_NomeFilme.TabIndex = 9;
             this.label_NomeFilme.Text = "Nome do Filme";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(15, 17);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(285, 461);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(830, 501);
+            this.tabPage2.Size = new System.Drawing.Size(830, 496);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pesquisa";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // buttonEditar
-            // 
-            this.buttonEditar.Location = new System.Drawing.Point(138, 59);
-            this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
-            this.buttonEditar.TabIndex = 20;
-            this.buttonEditar.Text = "Editar";
-            this.buttonEditar.UseVisualStyleBackColor = true;
-            // 
-            // buttonGravar
-            // 
-            this.buttonGravar.Location = new System.Drawing.Point(219, 59);
-            this.buttonGravar.Name = "buttonGravar";
-            this.buttonGravar.Size = new System.Drawing.Size(75, 23);
-            this.buttonGravar.TabIndex = 21;
-            this.buttonGravar.Text = "Gravar";
-            this.buttonGravar.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -328,6 +354,7 @@
         private System.Windows.Forms.Button buttonRemover;
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonGravar;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
