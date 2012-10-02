@@ -23,14 +23,13 @@ namespace Controle_de_Filmes
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+           
         }
-
         private void Cadastro_Click(object sender, EventArgs e)
         {
 
-        }        
-        private void button1_Click(object sender, EventArgs e)
+        }
+        private void botao_Adicionar_Click(object sender, EventArgs e)
         {
             if (textBoxNome.Text != "" && comboBoxGenero.Text != null && textBoxLocal.Text != "")
             {
@@ -69,33 +68,10 @@ namespace Controle_de_Filmes
             else
                 MessageBox.Show("Preencha todos os campos");
         }
-        private void Deletar()
-        {
-            foreach (ListViewItem listViewItem in listView1.SelectedItems)
-            {
-                //Remve item do Lis ListView1
-                listView1.Items.Remove(listViewItem);
-
-                // Remove o filme do dicionario que está selecionado no ListView
-                string Genero = listViewItem.Group.Header;
-                List<Filme> ListaFilme = dic[Genero];
-
-                for (int I = 0; I < ListaFilme.Count; I++)
-                    if (ListaFilme[I].Nome == listViewItem.Text)
-                    {
-                        ListaFilme.RemoveAt(I);
-                        I--;
-                    }
-            }
-        }
         private void buttonRemover_Click(object sender, EventArgs e)
         {
             // Remover item selecionadodo ListView 
-            foreach (ListViewItem listViewItem in listView1.SelectedItems)
-            {   
-                    Deletar();
-            }
-
+            Deletar();
         }
         private void listView1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -115,24 +91,80 @@ namespace Controle_de_Filmes
         {
             Gravar_Edicao();
         }
-        private void Gravar_Edicao()
-        {
-            if (Editar)
-            {
-                foreach (ListViewItem listViewItem in listView1.SelectedItems)
-                {
-                    listViewItem.Text = textBoxNome.Text;
-                    listViewItem.Group.Header = comboBoxGenero.Text;
-                    listViewItem.SubItems[1].Text = dateTimePicker1.Text;
-                    listViewItem.SubItems[2].Text = textBoxLocal.Text;
-                }
-            }
-            Editar = false;
-        }
-        private void Editar_Item()
+        #region "Função Deletar"
+        private void Deletar()
         {
             foreach (ListViewItem listViewItem in listView1.SelectedItems)
             {
+                // Remove o filme do dicionario que está selecionado no ListView
+                string Genero = listViewItem.Group.Header;
+                List<Filme> ListaFilme = dic[Genero];
+
+                for (int I = 0; I < ListaFilme.Count; I++)
+                    if (ListaFilme[I].Nome == listViewItem.Text)
+                    {
+                        ListaFilme.RemoveAt(I);
+                        I--;
+                    }
+                //Remve item do ListView1
+                listView1.Items.Remove(listViewItem);
+            }
+        }
+        #endregion
+        #region "Função Gravar_Edicao"
+        private void Gravar_Edicao()
+        {
+            Filme FilmeEditado = new Filme(textBoxNome.Text, dateTimePicker1.ToString(), textBoxLocal.Text);
+            if (textBoxNome.Text != "" && comboBoxGenero.Text != null && textBoxLocal.Text != "")
+            {
+                if (Editar)
+                {
+                    foreach (ListViewItem listViewItem in listView1.SelectedItems)
+                    {
+                        string Genero = listViewItem.Group.Header;
+                        List<Filme> ListaFilme = dic[Genero];
+
+                        for (int I = 0; I < ListaFilme.Count; I++)
+                            if (ListaFilme[I].Nome == listViewItem.Text)
+                            {
+                                ListaFilme.RemoveAt(I);
+                                I--;
+                            }
+
+                        if (dic.ContainsKey(comboBoxGenero.Text))
+                        {
+                            List<Filme> ListaX = dic[comboBoxGenero.Text];
+                            ListaX.Add(FilmeEditado);
+                        }
+                        else
+                        {
+                            List<Filme> NovaLista = new List<Filme>();
+                            NovaLista.Add(FilmeEditado);
+                            dic.Add(comboBoxGenero.Text, NovaLista);
+                        }
+                        // grava o filme editado no item selecionado do ListView
+                        listViewItem.Text = textBoxNome.Text;
+                        listViewItem.Group.Header = comboBoxGenero.Text;
+                        listViewItem.SubItems[1].Text = dateTimePicker1.Text;
+                        listViewItem.SubItems[2].Text = textBoxLocal.Text;
+                    }
+                }
+                else
+                    MessageBox.Show("Não tem itens pra ser editados");
+                Limpar();
+                Editar = false;
+            }
+            else
+                MessageBox.Show("Preencha todos os campos");
+        }
+        #endregion
+        #region "Função Editar_Item"
+        private void Editar_Item()
+        {
+            //percorre todo o ListView pra achar iten selecionado
+            foreach (ListViewItem listViewItem in listView1.SelectedItems)
+            {
+                // Os campos serão iguais aos itens e subitens selecionado
                 textBoxNome.Text = listViewItem.Text;
                 comboBoxGenero.Text = listViewItem.Group.Header;
                 dateTimePicker1.Text = listViewItem.SubItems[1].Text;
@@ -140,6 +172,8 @@ namespace Controle_de_Filmes
             }
             Editar = true;
         }
+        #endregion
+        #region "Função para Limpar campos"
         private void Limpar()
         {
             //Limpar compos de texto
@@ -147,5 +181,6 @@ namespace Controle_de_Filmes
             comboBoxGenero.Text = null;
             textBoxLocal.Text = "";
         }
+        #endregion
     }
 }
