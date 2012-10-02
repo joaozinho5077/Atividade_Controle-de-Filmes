@@ -31,6 +31,34 @@ namespace Controle_de_Filmes
         }
         private void botao_Adicionar_Click(object sender, EventArgs e)
         {
+            Cadastrar();
+        }
+        private void buttonRemover_Click(object sender, EventArgs e)
+        {
+            // Remover item selecionadodo do ListView 
+            Deletar();
+        }
+        private void listView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Remover item selecionados pela tecla Delete 
+            if (e.KeyCode == Keys.Delete)
+            {
+                Deletar();
+            }        
+        }
+        
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            Editar_Filme();
+        }
+
+        private void buttonGravar_Click(object sender, EventArgs e)
+        {
+            Gravar_Edicao();
+        }
+        #region "Função Cadastrar"
+        private void Cadastrar()
+        {
             if (textBoxNome.Text != "" && comboBoxGenero.Text != null && textBoxLocal.Text != "")
             {
                 //Adiciona Itens no ListView
@@ -68,29 +96,7 @@ namespace Controle_de_Filmes
             else
                 MessageBox.Show("Preencha todos os campos");
         }
-        private void buttonRemover_Click(object sender, EventArgs e)
-        {
-            // Remover item selecionadodo ListView 
-            Deletar();
-        }
-        private void listView1_KeyDown(object sender, KeyEventArgs e)
-        {
-            //Remover item selecionados pela tecla Delete 
-            if (e.KeyCode == Keys.Delete)
-            {
-                Deletar();
-            }        
-        }
-        
-        private void buttonEditar_Click(object sender, EventArgs e)
-        {
-            Editar_Item();
-        }
-
-        private void buttonGravar_Click(object sender, EventArgs e)
-        {
-            Gravar_Edicao();
-        }
+        #endregion
         #region "Função Deletar"
         private void Deletar()
         {
@@ -128,6 +134,7 @@ namespace Controle_de_Filmes
                             if (ListaFilme[I].Nome == listViewItem.Text)
                             {
                                 ListaFilme.RemoveAt(I);
+ 
                                 I--;
                             }
 
@@ -144,7 +151,7 @@ namespace Controle_de_Filmes
                         }
                         // grava o filme editado no item selecionado do ListView
                         listViewItem.Text = textBoxNome.Text;
-                        listViewItem.Group.Header = comboBoxGenero.Text;
+                        listViewItem.Group = listView1.Groups[comboBoxGenero.SelectedIndex];
                         listViewItem.SubItems[1].Text = dateTimePicker1.Text;
                         listViewItem.SubItems[2].Text = textBoxLocal.Text;
                     }
@@ -158,8 +165,8 @@ namespace Controle_de_Filmes
                 MessageBox.Show("Preencha todos os campos");
         }
         #endregion
-        #region "Função Editar_Item"
-        private void Editar_Item()
+        #region "Função Editar_Filme"
+        private void Editar_Filme()
         {
             //percorre todo o ListView pra achar iten selecionado
             foreach (ListViewItem listViewItem in listView1.SelectedItems)
@@ -173,7 +180,7 @@ namespace Controle_de_Filmes
             Editar = true;
         }
         #endregion
-        #region "Função para Limpar campos"
+        #region "Função pra Limpar os campos"
         private void Limpar()
         {
             //Limpar compos de texto
